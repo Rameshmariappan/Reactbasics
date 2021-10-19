@@ -1,8 +1,9 @@
-import react, { useState, useCallback } from "react";
+// import react, { useState, useCallback } from "react";
 import React from "react";
-import Title from "./Component/Usecallbackexample/Title";
-import Count from "./Component/Usecallbackexample/Count";
-import Button from "./Component/Usecallbackexample/Button";
+import UseMemo from "./usememoexample/UseMemo";
+// import Title from "./Component/Usecallbackexample/Title";
+// import Count from "./Component/Usecallbackexample/Count";
+// import Button from "./Component/Usecallbackexample/Button";
 // import { useReducer } from "react/cjs/react.development";
 // import "./App.css";
 // import Newstate1 from "./Component/ShareState/Newstate1";
@@ -32,22 +33,23 @@ import Button from "./Component/Usecallbackexample/Button";
 
 function App() {
   // const [count, dispatch] = useReducer(reducer, initialState);
-  const [studentage, setStudentage] = useState(10);
-  const [studentfees, setStudentfees] = useState(10000);
+  // const [studentage, setStudentage] = useState(10);
+  // const [studentfees, setStudentfees] = useState(10000);
 
-  const IncrementAge = useCallback(() => {
-    setStudentage(studentage + 1);
-  }, [studentage]);
-  const Incrementsalary = useCallback(() => {
-    setStudentfees(studentfees + 1000);
-  }, [studentfees]);
+  // const IncrementAge = useCallback(() => {
+  //   setStudentage(studentage + 1);
+  // }, [studentage]);
+  // const Incrementsalary = useCallback(() => {
+  //   setStudentfees(studentfees + 1000);
+  // }, [studentfees]);
   return (
     <div className="App">
-      <Title />
+      <UseMemo />
+      {/* <Title />
       <Count text="Studentage" count={studentage} />
       <Button handleonclick={IncrementAge}>Increment age</Button>
       <Count text="StudentFees" count={studentfees} />
-      <Button handleonclick={Incrementsalary}>Increment salary</Button>
+      <Button handleonclick={Incrementsalary}>Increment salary</Button> */}
       {/* <UserCounts /> */}
       {/* <MultipleuseReducers /> */}
       {/* <UserContext.Provider value={"hello"}>

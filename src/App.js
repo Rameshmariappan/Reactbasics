@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import react from "react";
+import React from "react";
+import { useReducer } from "react/cjs/react.development";
+import "./App.css";
+import Newstate1 from "./Component/ShareState/Newstate1";
+import Newstate2 from "./Component/ShareState/Newstate2";
+import Newstate3 from "./Component/ShareState/Newstate3";
+// import UserCounts from "./Component/useReducercount";
+// import MultipleuseReducers from "./Component/MultipleuseReducers";
+// import FirstContext from "./Component/Usecontecxtexamples/FirstContext";
+
+// export const UserContext = React.createContext();
+// export const ChannelContext = React.createContext();
+
+export const CounterContext = React.createContext();
+const initialState = 0;
+const reducer = (state, action) => {
+  switch (action) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1;
+    case "reset":
+      return initialState;
+    default:
+      return state;
+  }
+};
 
 function App() {
+  const [count, dispatch] = useReducer(reducer, initialState);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <UserCounts /> */}
+      {/* <MultipleuseReducers /> */}
+      {/* <UserContext.Provider value={"hello"}>
+        <ChannelContext.Provider value={"mychannel"}>
+          <FirstContext />
+        </ChannelContext.Provider>
+      </UserContext.Provider> */}
+      <h1>count-{count}</h1>
+      <CounterContext.Provider
+        value={{ counter: count, dispatchmethod: dispatch }}
+      >
+        <Newstate1 />
+        <Newstate2 />
+        <Newstate3 />
+      </CounterContext.Provider>
     </div>
   );
 }
